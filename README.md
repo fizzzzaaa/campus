@@ -30,57 +30,54 @@
 
 ![WhatsApp Image 2025-01-13 at 00 00 18_e56084a5](https://github.com/user-attachments/assets/56a61459-9955-488a-9c3a-4e6bfd6d6359)
 
-
 # Campus Life Assistant App
 
-Welcome to the **Campus Life Assistant App** repository! This project is designed to enhance student life by providing functionalities such as class schedule management, event notifications, assignment tracking, study group creation, and feedback collection. The app also integrates Firebase for user authentication and uses SQFlite for offline storage.
+Welcome to the **Campus Life Assistant App** repository! This project is designed to enhance student life by providing features such as class schedule management, event notifications, assignment tracking, study group creation, and feedback collection. The app integrates Firebase for user authentication and uses SQFlite for offline storage.
+
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Resources](#resources)
+- [Author](#author)
 
 ## Features
 
-### Phase 1: Setup and Firebase Integration
-- **Firebase Authentication**
-  - Sign-up, login, and profile management using Firebase Authentication (email/password).
-  - Secure authentication with Firebase's free tier.
+### Firebase Authentication
+- User authentication with email/password.
+- Profile management.
 
-### Phase 2: Class Schedule Management & Local Storage
-- **Class Schedule Management**
-  - Add, edit, and delete classes.
-  - Sync data with Cloud Firestore for cross-device access.
-  - Local storage using SQFlite for offline access.
-- **Offline Storage (SQFlite)**
-  - Ensure offline support for schedules and events.
+### Class Schedule Management
+- Add, edit, and delete class schedules.
+- Sync schedules with Cloud Firestore.
+- Offline storage using SQFlite.
 
-### Phase 3: Event Notifications and Assignment Tracker
-- **Event Notifications**
-  - Receive push notifications for upcoming events, deadlines, and class schedules using Firebase Cloud Messaging (FCM).
-- **Assignment Tracker and Deadline Reminders**
-  - Add assignments and set deadlines.
-  - Receive reminders via `flutter_local_notifications`.
-  - Sync assignments with Cloud Firestore and SQFlite.
+### Event Notifications
+- Push notifications for upcoming events, deadlines, and class schedules using Firebase Cloud Messaging (FCM).
 
-### Phase 4: Study Group Finder and Feedback System
-- **Study Group Finder**
-  - Create, join, or leave study groups.
-  - Store data using Firestore or Realtime Database.
-- **Feedback System**
-  - Rate courses, professors, or campus services.
-  - Store feedback in Cloud Firestore.
+### Assignment Tracker
+- Add assignments and set deadlines.
+- Receive reminders using `flutter_local_notifications`.
+- Offline and cross-device data sync via Firestore and SQFlite.
 
-### Phase 5: Final Integration, Testing, and Documentation
-- **Final Integration & UI Enhancements**
-  - Combine all features into a polished, user-friendly experience.
-- **Testing & Documentation**
-  - Conduct thorough testing.
-  - Provide detailed documentation on app usage and features.
+### Study Group Finder
+- Create, join, and leave study groups.
+- Store group data using Firestore or Realtime Database.
+
+### Feedback System
+- Rate courses, professors, or campus services.
+- Store feedback in Firestore.
+
+### Final Integration and UI Enhancements
+- Polished user interface for a seamless experience.
+
+### Testing and Documentation
+- Detailed app usage documentation and thorough testing for quality assurance.
 
 ## Getting Started
 
 ### Prerequisites
 - Flutter SDK
 - Firebase account
-- Android Studio/Visual Studio Code
+- Android Studio or Visual Studio Code
 - GitHub account
-
-
-
-
