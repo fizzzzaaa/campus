@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'add_class.dart'; // Import the Schedule Management Screen
+import 'assignment_tracker_screen.dart'; // Import the Assignment Tracker Screen
 
 void main() {
   runApp(const MyApp());
@@ -68,6 +69,13 @@ class HomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const ScheduleManagementScreen(),
+                    ),
+                  );
+                } else if (phases[index]['title'] == 'Assignment Tracker') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AssignmentTrackerScreen(),
                     ),
                   );
                 }
