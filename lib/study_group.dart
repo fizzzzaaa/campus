@@ -29,7 +29,7 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
         _groups.add(StudyGroup(
           groupName: _groupNameController.text,
           members: [],
-          color: Colors.teal, // You can modify this color for created groups
+          color: Colors.teal,
         ));
         _groupNameController.clear();
       });
@@ -51,7 +51,6 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
     });
   }
 
-  // Function to navigate to chat screen for the selected group
   void _goToChatScreen(StudyGroup group) {
     Navigator.push(
       context,
@@ -61,7 +60,6 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
     );
   }
 
-  // Function to show Snackbar when joining a group
   void _joinGroup(BuildContext context, StudyGroup group) {
     final snackBar = SnackBar(content: Text("You have joined the group"));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -78,7 +76,6 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Create Group Section
             TextField(
               controller: _groupNameController,
               decoration: InputDecoration(
@@ -95,8 +92,6 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
               ),
             ),
             SizedBox(height: 24),
-
-            // Display Groups List (created groups)
             Expanded(
               child: ListView.builder(
                 itemCount: _groups.length,
@@ -116,15 +111,18 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
                             SizedBox(width: 8),
                             Text(
                               group.groupName,
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.white),
                             ),
-                            Spacer(), // Add space between the text and button
+                            Spacer(),
                             ElevatedButton(
                               onPressed: () => _joinGroup(context, group),
                               child: Text("Join Group"),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.white,
-                                foregroundColor: Colors.teal, // Button color
+                                foregroundColor: Colors.teal,
                                 padding: EdgeInsets.symmetric(horizontal: 10),
                               ),
                             ),
@@ -175,27 +173,47 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  void _leaveGroup(BuildContext context) {
+    Navigator.pop(context);
+    final snackBar = SnackBar(content: Text("You have left the group"));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.group.groupName),
         backgroundColor: Colors.teal,
+        actions: [
+          ElevatedButton(
+            onPressed: () => _leaveGroup(context),
+            child: Text(
+              "Leave",
+              style: TextStyle(color: Colors.white),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              elevation: 0,
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
-          // Display Group Members
           Container(
             padding: EdgeInsets.all(8.0),
             color: Colors.teal[50],
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Members:', style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  'Members:',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 8),
                 ...widget.group.members.map((member) => Text(member)).toList(),
                 SizedBox(height: 8),
-                // Add Member TextField
                 TextField(
                   controller: _addMemberController,
                   decoration: InputDecoration(
@@ -215,8 +233,6 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           SizedBox(height: 16),
-
-          // Chat Messages Section
           Expanded(
             child: ListView.builder(
               itemCount: _messages.length,
@@ -227,8 +243,6 @@ class _ChatScreenState extends State<ChatScreen> {
               },
             ),
           ),
-
-          // Chat Input Section
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
