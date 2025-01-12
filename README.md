@@ -81,44 +81,6 @@ Welcome to the **Campus Life Assistant App** repository! This project is designe
 - Android Studio/Visual Studio Code
 - GitHub account
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/campus-life-assistant.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd campus-life-assistant
-   ```
-3. Install dependencies:
-   ```bash
-   flutter pub get
-   ```
-4. Configure Firebase:
-   - Set up Firebase for the project.
-   - Download the `google-services.json` file for Android and place it in the `android/app` directory.
-   - For iOS, add the `GoogleService-Info.plist` file to the `Runner` folder.
-5. Run the app:
-   ```bash
-   flutter run
-   ```
 
-## Project Structure
-- `lib/`
-  - Contains the main Flutter application code.
-- `android/` and `ios/`
-  - Platform-specific configurations.
-- `assets/`
-  - Stores images and other static files.
-- `pubspec.yaml`
-  - Dependency file.
 
-## Resources
-- [Firebase Documentation](https://firebase.google.com/docs)
-- [Flutter SQFlite Documentation](https://pub.dev/packages/sqflite)
-- [Flutter FCM Guide](https://firebase.flutter.dev/docs/messaging/overview)
 
-## Author
-- **Teacher:** Muhammad Abdullah
-
-Good luck and have fun building your app! 🎉
