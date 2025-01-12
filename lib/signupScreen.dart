@@ -16,80 +16,132 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 50),
-              Text(
+              const SizedBox(height: 80),
+              // Placeholder for App Logo or Image
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.blue.shade50,
+                ),
+                child: const Icon(
+                  Icons.person_add,
+                  size: 60,
+                  color: Colors.blue,
+                ),
+              ),
+              const SizedBox(height: 30),
+              // Welcome Text
+              const Text(
                 'Create an Account',
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 10),
+              const Text(
+                'Sign up to get started with the app',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black54,
+                ),
+              ),
+              const SizedBox(height: 40),
+              // Username Field
               TextField(
                 controller: usernameController,
                 decoration: InputDecoration(
                   labelText: 'Username',
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: const Icon(Icons.person, color: Colors.blue),
+                  filled: true,
+                  fillColor: Colors.blue.shade50,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              // Email Field
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
                   labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: const Icon(Icons.email, color: Colors.blue),
+                  filled: true,
+                  fillColor: Colors.blue.shade50,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              // Password Field
               TextField(
                 controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.blue),
+                  filled: true,
+                  fillColor: Colors.blue.shade50,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  // Add sign-up logic here (validation, etc.)
-                  // After successful sign-up, you can navigate to the LoginScreen or HomeScreen
+              const SizedBox(height: 30),
+              // Gradient Button
+              GestureDetector(
+                onTap: () {
+                  // Add sign-up logic here
                 },
-                child: Text('Sign Up'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  textStyle: TextStyle(fontSize: 18),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Colors.blue, Colors.purple],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              // Navigation to Login Screen
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account? "),
+                  const Text(
+                    "Already have an account? ",
+                    style: TextStyle(color: Colors.black54),
+                  ),
                   GestureDetector(
                     onTap: () {
-                      // Navigate to LoginScreen
-                      Navigator.pop(context); // Go back to Login Screen
+                      Navigator.pop(context); // Navigate to the Login Screen
                     },
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(
                         color: Colors.blue,
@@ -99,6 +151,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ],
               ),
+              const SizedBox(height: 40),
             ],
           ),
         ),

@@ -35,9 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
       //   MaterialPageRoute(builder: (context) => HomeScreen()),
       // );
     } on FirebaseAuthException catch (e) {
-      // Simulate error message
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login failed: ${e.message}')),
+        SnackBar(
+          content: Text('Login failed: ${e.message}'),
+          backgroundColor: Colors.red,
+        ),
       );
     }
   }
@@ -48,42 +50,72 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 50),
-              Text(
+              const SizedBox(height: 80),
+              // Logo or Placeholder Image
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.blue.shade50,
+                ),
+                child: const Icon(
+                  Icons.person,
+                  size: 60,
+                  color: Colors.blue,
+                ),
+              ),
+              const SizedBox(height: 30),
+              // Welcome Text
+              const Text(
                 'Welcome Back!',
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 10),
+              const Text(
+                'Login to your account to continue',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black54,
+                ),
+              ),
+              const SizedBox(height: 40),
+              // Email Field
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
-                  labelText: 'Email',
-                  prefixIcon: Icon(Icons.email),
+                  labelText: 'Email Address',
+                  prefixIcon: const Icon(Icons.email, color: Colors.blue),
+                  filled: true,
+                  fillColor: Colors.blue.shade50,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              // Password Field
               TextField(
                 controller: passwordController,
                 obscureText: !_isPasswordVisible,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.blue),
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      _isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Colors.grey,
                     ),
                     onPressed: () {
                       setState(() {
@@ -91,36 +123,60 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                     },
                   ),
+                  filled: true,
+                  fillColor: Colors.blue.shade50,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: _login,
-                child: Text('Login'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  textStyle: TextStyle(fontSize: 18),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+              const SizedBox(height: 30),
+              // Gradient Button
+              GestureDetector(
+                onTap: _login, // Use the same functionality as the ElevatedButton's onPressed
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Colors.blue, Colors.purple],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+              // Sign Up Navigation
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account? "),
+                  const Text(
+                    "Don't have an account? ",
+                    style: TextStyle(color: Colors.black54),
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                        MaterialPageRoute(
+                          builder: (context) => SignUpScreen(),
+                        ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'Sign Up',
                       style: TextStyle(
                         color: Colors.blue,
@@ -130,6 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
+              const SizedBox(height: 40),
             ],
           ),
         ),
