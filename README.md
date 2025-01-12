@@ -34,12 +34,6 @@
 
 Welcome to the **Campus Life Assistant App** repository! This project is designed to enhance student life by providing features such as class schedule management, event notifications, assignment tracking, study group creation, and feedback collection. The app integrates Firebase for user authentication and uses SQFlite for offline storage.
 
-## Table of Contents
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Resources](#resources)
-- [Author](#author)
 
 ## Features
 
@@ -74,10 +68,3 @@ Welcome to the **Campus Life Assistant App** repository! This project is designe
 ### Testing and Documentation
 - Detailed app usage documentation and thorough testing for quality assurance.
 
-## Getting Started
-
-### Prerequisites
-- Flutter SDK
-- Firebase account
-- Android Studio or Visual Studio Code
-- GitHub account
