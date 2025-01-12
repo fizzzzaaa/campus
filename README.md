@@ -31,20 +31,94 @@
 ![WhatsApp Image 2025-01-13 at 00 00 18_e56084a5](https://github.com/user-attachments/assets/56a61459-9955-488a-9c3a-4e6bfd6d6359)
 
 
+# Campus Life Assistant App
 
-# campus
+Welcome to the **Campus Life Assistant App** repository! This project is designed to enhance student life by providing functionalities such as class schedule management, event notifications, assignment tracking, study group creation, and feedback collection. The app also integrates Firebase for user authentication and uses SQFlite for offline storage.
 
-A new Flutter project.
+## Features
+
+### Phase 1: Setup and Firebase Integration
+- **Firebase Authentication**
+  - Sign-up, login, and profile management using Firebase Authentication (email/password).
+  - Secure authentication with Firebase's free tier.
+
+### Phase 2: Class Schedule Management & Local Storage
+- **Class Schedule Management**
+  - Add, edit, and delete classes.
+  - Sync data with Cloud Firestore for cross-device access.
+  - Local storage using SQFlite for offline access.
+- **Offline Storage (SQFlite)**
+  - Ensure offline support for schedules and events.
+
+### Phase 3: Event Notifications and Assignment Tracker
+- **Event Notifications**
+  - Receive push notifications for upcoming events, deadlines, and class schedules using Firebase Cloud Messaging (FCM).
+- **Assignment Tracker and Deadline Reminders**
+  - Add assignments and set deadlines.
+  - Receive reminders via `flutter_local_notifications`.
+  - Sync assignments with Cloud Firestore and SQFlite.
+
+### Phase 4: Study Group Finder and Feedback System
+- **Study Group Finder**
+  - Create, join, or leave study groups.
+  - Store data using Firestore or Realtime Database.
+- **Feedback System**
+  - Rate courses, professors, or campus services.
+  - Store feedback in Cloud Firestore.
+
+### Phase 5: Final Integration, Testing, and Documentation
+- **Final Integration & UI Enhancements**
+  - Combine all features into a polished, user-friendly experience.
+- **Testing & Documentation**
+  - Conduct thorough testing.
+  - Provide detailed documentation on app usage and features.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Flutter SDK
+- Firebase account
+- Android Studio/Visual Studio Code
+- GitHub account
 
-A few resources to get you started if this is your first Flutter project:
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/campus-life-assistant.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd campus-life-assistant
+   ```
+3. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
+4. Configure Firebase:
+   - Set up Firebase for the project.
+   - Download the `google-services.json` file for Android and place it in the `android/app` directory.
+   - For iOS, add the `GoogleService-Info.plist` file to the `Runner` folder.
+5. Run the app:
+   ```bash
+   flutter run
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Project Structure
+- `lib/`
+  - Contains the main Flutter application code.
+- `android/` and `ios/`
+  - Platform-specific configurations.
+- `assets/`
+  - Stores images and other static files.
+- `pubspec.yaml`
+  - Dependency file.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Resources
+- [Firebase Documentation](https://firebase.google.com/docs)
+- [Flutter SQFlite Documentation](https://pub.dev/packages/sqflite)
+- [Flutter FCM Guide](https://firebase.flutter.dev/docs/messaging/overview)
+
+## Author
+- **Teacher:** Muhammad Abdullah
+
+Good luck and have fun building your app! 🎉
