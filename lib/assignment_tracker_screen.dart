@@ -12,6 +12,11 @@ class _AssignmentTrackerScreenState extends State<AssignmentTrackerScreen> {
   DateTime? _selectedDeadline;
   List<Map<String, dynamic>> _assignments = [];
 
+  @override
+  void initState() {
+    super.initState();
+  }
+
   void _selectDeadline() async {
     DateTime? pickedDate = await showDatePicker(
       context: context,

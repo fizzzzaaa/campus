@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'add_class.dart'; // Import the Schedule Management Screen
 import 'assignment_tracker_screen.dart'; // Import the Assignment Tracker Screen
+import 'study_group.dart'; // Import the Study Group Screen
 
 void main() {
   runApp(const MyApp());
@@ -76,6 +77,13 @@ class HomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => AssignmentTrackerScreen(),
+                    ),
+                  );
+                } else if (phases[index]['title'] == 'Study Groups') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StudyGroupScreen(),
                     ),
                   );
                 }
